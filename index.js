@@ -1,4 +1,4 @@
-import platform from 'image.png'
+import platform from '/image.png'
 
 console.log(platform)
 const canvas = document.querySelector('canvas')
