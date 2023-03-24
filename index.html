@@ -62,11 +62,21 @@
 
 		// make circle jump when clicked
 		circle.addEventListener("click", function() {
+
+	<div id="circle" onclick="jump()"></div>
+
+	<script>
+		function jump() {
+			var circle = document.getElementById("circle");
+
 			circle.classList.add("jump");
 			setTimeout(function() {
 				circle.classList.remove("jump");
 			}, 500);
+
 		});
+
+		}
 	</script>
 </body>
 </html>
