@@ -36,17 +36,47 @@
 	</style>
 </head>
 <body>
+	<div id="circle"></div>
+
+	<script>
+		var circle = document.getElementById("circle");
+
+		// move circle using arrow keys
+		document.addEventListener("keydown", function(event) {
+			var key = event.key;
+			var position = circle.getBoundingClientRect();
+
+			if (key === "ArrowUp" && position.top > 0) {
+				circle.style.top = position.top - 10 + "px";
+			}
+			else if (key === "ArrowDown" && position.bottom < window.innerHeight) {
+				circle.style.top = position.top + 10 + "px";
+			}
+			else if (key === "ArrowLeft" && position.left > 0) {
+				circle.style.left = position.left - 10 + "px";
+			}
+			else if (key === "ArrowRight" && position.right < window.innerWidth) {
+				circle.style.left = position.left + 10 + "px";
+			}
+		});
+
+		// make circle jump when clicked
+		circle.addEventListener("click", function() {
+
 	<div id="circle" onclick="jump()"></div>
 
 	<script>
 		function jump() {
 			var circle = document.getElementById("circle");
+
 			circle.classList.add("jump");
 			setTimeout(function() {
 				circle.classList.remove("jump");
 			}, 500);
+
+		});
+
 		}
 	</script>
 </body>
 </html>
-
