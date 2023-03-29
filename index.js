@@ -126,7 +126,7 @@ function animate(){
     
     else {
         player.velocity.x = 0
-        this.isGrounded = true
+        player.isGrounded = true
 
         
         gravity = 0.5;
