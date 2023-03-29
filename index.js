@@ -1,10 +1,11 @@
+
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
 canvas.width = innerWidth
 canvas.height = innerHeight
 
-const gravity = 0.5
+let gravity = 0.5
 
 // 
 class Player {
@@ -19,6 +20,7 @@ class Player {
         }
         this.width = 30
         this.height = 30
+        this.isGrounded = true
     }
 
     // Dessiner notre personnage
@@ -38,12 +40,16 @@ class Player {
             this.velocity.y += gravity
 
         }
+        
         else this.velocity.y = 0
     }
+
+    
+
 }
 
 class Platform {
-    constructor({ x, y, image }) {
+    constructor({ x, y}) {
         this.position = {
             x,y
         }
@@ -51,36 +57,38 @@ class Platform {
         this.width = 200
         this.height = 20
 
-        this.image = image
     }
 
-    draw() {
-        c.drawImage(this.image, this.position.x, this.position.y)
+    draw(color) {
+        c.fillStyle = color
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
 }
 
-const image = new Image();
-image.src = './image.png';
-
-console.log(image)
+requestAnimationFrame
 
 const player = new Player()
 const platforms = [
     new Platform({ 
-        x: 200, 
-        y: 100,
-        image}), 
+        x: 300, 
+        y: 600}), 
         
         new Platform({ 
-        x: 500, 
-        y: 200,
-        image })]
+        x: 600, 
+        y: 300})
+]
 
 const keys = {
     right:{
         pressed: false
     },
     left:{
+        pressed: false
+    },
+    down:{
+        pressed: false
+    },
+    up:{
         pressed: false
     }
 }
@@ -91,19 +99,37 @@ function animate(){
     c.clearRect(0,0, canvas.width, canvas.height)
     player.update()
     platforms.forEach(platform => {
-        platform.draw()
+        platform.draw('yellow')
     })
-    
 
-    // player and platform mouvement
+
+// player and platform mouvement
+    // Va à droite
     if (keys.right.pressed && player.position.x < 400) {
         player.velocity.x = 5
+        if (keys.up.pressed && player.velocity.y >= -10 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
+            player.velocity.y -= 2;
+            this.isGrounded = false
+        }
     }
     else if (keys.left.pressed && player.position.x > 100) {
         player.velocity.x = -5
+        if (keys.up.pressed && player.velocity.y >= -10 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
+            player.velocity.y -= 2;
+            this.isGrounded = false
+        }
     }
+    //chatgpt
+    else if (keys.up.pressed && player.velocity.y >= -10 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
+        player.velocity.y -= 2.5;
+    }
+    
     else {
         player.velocity.x = 0
+        this.isGrounded = true
+
+        
+        gravity = 0.5;
 
         if (keys.right.pressed) {
             platforms.forEach(platform => {
@@ -125,50 +151,54 @@ function animate(){
             player.position.x + player.width >= platform.position.x &&
             player.position.x < platform.position.x + platform.width){
             player.velocity.y = 0
+            platform.draw('pink')
+
+            if (keys.down.pressed == true){location.href = "next.html";}
+            
         }
+        else {platform.draw('yellow')}
     })
+
     
 }
 animate()
 
+
 addEventListener('keydown',({ keyCode }) => {
-    console.log(keyCode)
+    
     switch (keyCode) {
         case 37:
-            console.log('left')
             keys.left.pressed = true
             break
         case 40:
-            console.log('down')
+            keys.down.pressed = true
             break
         case 39:
-            console.log('right')
             keys.right.pressed = true
             break
         case 38:
-            console.log('up')
-            player.velocity.y -= 20
+            keys.up.pressed = true
             break
 
     }
 })
+
 addEventListener('keyup',({ keyCode }) => {
-    console.log(keyCode)
+    
     switch (keyCode) {
         case 37:
-            console.log('left')
             keys.left.pressed = false
             break
         case 40:
-            console.log('down')
+            keys.down.pressed = false
             break
         case 39:
-            console.log('right')
             keys.right.pressed = false
             break
         case 38:
-            console.log('up')
+            keys.up.pressed = false
             break
 
     }
 })
+
