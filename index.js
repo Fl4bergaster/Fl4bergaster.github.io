@@ -18,15 +18,15 @@ class Player {
             x: 0,
             y: 0
         }
-        this.width = 30
-        this.height = 30
+        this.image = image
+        this.width = 64
+        this.height = 64
         this.isGrounded = true
     }
 
     // Dessiner notre personnage
-    draw(){
-        c.fillStyle = 'red'
-        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+    draw() {
+        c.drawImage(this.image, this.position.x, this.position.y)
     }
 
     // Updater la position du personnage
@@ -47,6 +47,10 @@ class Player {
     
 
 }
+const image = new Image();
+image.src = './player.png';
+
+console.log(image)
 
 class Platform {
     constructor({ x, y}) {
@@ -107,21 +111,21 @@ function animate(){
     // Va à droite
     if (keys.right.pressed && player.position.x < 400) {
         player.velocity.x = 5
-        if (keys.up.pressed && player.velocity.y >= -10 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
-            player.velocity.y -= 2;
+        if (keys.up.pressed && player.velocity.y >= -20 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
+            player.velocity.y -= 5;
             this.isGrounded = false
         }
     }
     else if (keys.left.pressed && player.position.x > 100) {
         player.velocity.x = -5
-        if (keys.up.pressed && player.velocity.y >= -10 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
-            player.velocity.y -= 2;
+        if (keys.up.pressed && player.velocity.y >= -20 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
+            player.velocity.y -= 5;
             this.isGrounded = false
         }
     }
     //chatgpt
-    else if (keys.up.pressed && player.velocity.y >= -10 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
-        player.velocity.y -= 2.5;
+    else if (keys.up.pressed && player.velocity.y >= -20 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
+        player.velocity.y -= 5;
     }
     
     else {
