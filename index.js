@@ -22,6 +22,7 @@ class Player {
         this.width = 64
         this.height = 64
         this.isGrounded = true
+        this.jumpMaxHeight = 50
     }
 
     // Dessiner notre personnage
@@ -105,32 +106,43 @@ function animate(){
     platforms.forEach(platform => {
         platform.draw('yellow')
     })
-
-
+    //console.log(player.position.x, player.position.y, canvas.height)
+    //console.log(player.isGrounded)
+    
 // player and platform mouvement
     // Va à droite
     if (keys.right.pressed && player.position.x < 400) {
         player.velocity.x = 5
-        if (keys.up.pressed && player.velocity.y >= -20 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
-            player.velocity.y -= 5;
-            this.isGrounded = false
+        if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
+            player.velocity.y -= 10;
+            player.isGrounded = false
+            
         }
     }
+
+    // Va à gauche
     else if (keys.left.pressed && player.position.x > 100) {
         player.velocity.x = -5
-        if (keys.up.pressed && player.velocity.y >= -20 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
-            player.velocity.y -= 5;
-            this.isGrounded = false
+        if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
+            player.velocity.y -= 10;
+            player.isGrounded = false
+           
         }
     }
-    //chatgpt
-    else if (keys.up.pressed && player.velocity.y >= -20 && player.position.y >= canvas.height - 75 && player.isGrounded == true) {
-        player.velocity.y -= 5;
+
+    //saute 
+    else if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
+        player.velocity.y -= 10;
+        player.isGrounded = false
+        
     }
     
     else {
         player.velocity.x = 0
-        player.isGrounded = true
+        
+        if ((player.position.y + 63.5) == canvas.height){
+            player.isGrounded = true
+        }
 
         
         gravity = 0.5;
@@ -156,6 +168,7 @@ function animate(){
             player.position.x < platform.position.x + platform.width){
             player.velocity.y = 0
             platform.draw('pink')
+            player.isGrounded = true
 
             if (keys.down.pressed == true){location.href = "next.html";}
             
