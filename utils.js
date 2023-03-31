@@ -1,6 +1,6 @@
 export class Player{
 
-    constructor({ x, y, text}) {
+    constructor({}) {
         this.position = {
             x: 100,y: 100
         }
