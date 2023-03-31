@@ -2,7 +2,7 @@ export class Player{
 
     constructor({ x, y, text}) {
         this.position = {
-            x,y
+            x: 100,y: 100
         }
 
         this.width = 200
