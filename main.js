@@ -1,14 +1,5 @@
-const { Player } = require('./index.js');
+import { x } from "./utils.js";
 
-const player = new Player();
-
-
-const canvas = document.querySelector('canvas')
-const c = canvas.getContext('2d')
-
-canvas.width = innerWidth
-canvas.height = innerHeight
-
-
-player.update()
-
+const y = x;
+console.log( y );
+document.getElementById('myH1').innerHTML = y;
