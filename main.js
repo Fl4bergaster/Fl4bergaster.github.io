@@ -1,5 +1,7 @@
-import { x } from "./utils.js";
+import { Player } from "./utils.js";
 
-const y = x;
-console.log( y );
-document.getElementById('myH1').innerHTML = y;
+const player = new Player;
+
+player.draw()
+
+
