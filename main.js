@@ -1,6 +1,7 @@
+const { Player } = require('./index.js');
 
-import { Player } from 'player.js'
-const player = new Player()
+const player = new Player();
+
 
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
