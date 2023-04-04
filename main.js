@@ -1,4 +1,4 @@
-import { Player } from './index.js'
+import { Player } from './utils.js'
 
 const player = new Player();
 
