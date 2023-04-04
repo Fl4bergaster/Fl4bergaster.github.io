@@ -1,4 +1,4 @@
-const { Player } = from('./index.js');
+import { Player } from './index.js'
 
 const player = new Player();
 

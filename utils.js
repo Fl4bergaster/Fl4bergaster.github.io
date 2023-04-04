@@ -8,7 +8,7 @@ canvas.height = innerHeight
 let gravity = 0.5
 
 // 
-class Player {
+export class Player {
     constructor(){
         this.position = {
             x: 100,
