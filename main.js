@@ -1,4 +1,4 @@
-const { Player } = require('./index.js');
+const { Player } = from('./index.js');
 
 const player = new Player();
 
