@@ -4,7 +4,5 @@ const player = new Player();
 
 
 
-
-
-player.update()
+player.draw()
 
