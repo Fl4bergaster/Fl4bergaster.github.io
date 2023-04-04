@@ -140,7 +140,7 @@ function animate(){
         }
     }
 
-    // Va à gauche
+    // Va à gauch
     else if (keys.left.pressed && player.position.x > 100) {
         player.velocity.x = -5
         if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
