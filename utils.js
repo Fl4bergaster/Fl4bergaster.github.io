@@ -20,3 +20,5 @@ export class Player {
     }
 
 }
+const image = new Image();
+image.src = './player.png';
