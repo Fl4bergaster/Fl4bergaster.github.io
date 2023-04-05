@@ -1,9 +1,3 @@
-const canvas = document.querySelector('canvas')
-const c = canvas.getContext('2d')
-
-canvas.width = innerWidth
-canvas.height = innerHeight
-
 let gravity = 0.5
 
 export class Player {
@@ -24,13 +18,13 @@ export class Player {
     }
 
     // Dessiner notre personnage
-    draw() {
+    draw(c) {
         c.drawImage(this.image, this.position.x, this.position.y)
     }
 
     // Updater la position du personnage
-    update() {
-        this.draw()
+    update(c) {
+        this.draw(c)
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
     
