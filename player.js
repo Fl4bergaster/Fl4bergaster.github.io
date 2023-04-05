@@ -39,7 +39,12 @@ export class Player {
     }
 
     move(keys){
-        console.log(keys)
+        console.log(keys[0])
+        console.log(keys[1])
+        console.log(keys[2])
+        console.log(keys[3])
+
+        
 
 
 
