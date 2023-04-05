@@ -12,7 +12,7 @@ canvas.height = innerHeight
 function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0, canvas.width, canvas.height)
-    player.draw()
+    player.update()
 
 
 }
