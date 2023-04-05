@@ -23,13 +23,13 @@ export class Player {
     }
 
     // Updater la position du personnage
-    update(c) {
+    update(c, canvasHeight) {
         this.draw(c)
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
     
         // Ajouter de la gravité
-        if (this.position.y + this.height + this.velocity.y <= canvas.height){
+        if (this.position.y + this.height + this.velocity.y <= canvasHeight){
             this.velocity.y += gravity
 
         }

@@ -1,3 +1,7 @@
+window.addEventListener('scroll', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+
 import { Player } from './player.js'
 
 const player = new Player();
@@ -12,7 +16,7 @@ canvas.height = innerHeight
 function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0, canvas.width, canvas.height)
-    player.update(c)
+    player.update(c, canvas.height)
 
 
 }
