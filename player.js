@@ -40,6 +40,7 @@ export class Player {
 
     move(keys){
         console.log(keys['right']['pressed'])
+        console.log('   ')
         console.log(keys.right.pressed)
 
         

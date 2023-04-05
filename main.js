@@ -21,7 +21,7 @@ const keys = {
         pressed: false
     },
     down:{
-        pressed: false
+        pressed: true
     },
     up:{
         pressed: false
