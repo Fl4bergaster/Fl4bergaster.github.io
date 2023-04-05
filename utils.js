@@ -1,8 +1,4 @@
-const canvas = document.querySelector('canvas')
-const c = canvas.getContext('2d')
 
-canvas.width = innerWidth
-canvas.height = innerHeight
 
 export class Player {
     constructor(){
@@ -22,7 +18,7 @@ export class Player {
     }
     // Dessiner notre personnage
     draw() {
-        c.drawImage(this.image, this.position.x, this.position.y)
+        drawImage(this.image, this.position.x, this.position.y)
     }
 
 }
