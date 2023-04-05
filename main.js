@@ -1,4 +1,4 @@
-import { Player } from './utils.js'
+import { Player } from './player.js'
 
 const player = new Player();
 
@@ -9,6 +9,12 @@ const c = canvas.getContext('2d')
 canvas.width = innerWidth
 canvas.height = innerHeight
 
+function animate(){
+    requestAnimationFrame(animate)
+    c.clearRect(0,0, canvas.width, canvas.height)
+    player.draw()
 
-player.draw()
 
+}
+
+animate()
