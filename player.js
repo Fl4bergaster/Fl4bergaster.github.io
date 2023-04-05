@@ -23,8 +23,9 @@ export class Player {
     }
 
     // Updater la position du personnage
-    update(c, canvasHeight) {
+    update(c, canvasHeight, keys) {
         this.draw(c)
+        this.move(keys)
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
     
@@ -35,6 +36,13 @@ export class Player {
         }
         
         else this.velocity.y = 0
+    }
+
+    move(keys){
+        console.log(keys)
+
+
+
     }
 
 }
