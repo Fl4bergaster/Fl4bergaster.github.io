@@ -13,16 +13,6 @@ const c = canvas.getContext('2d')
 canvas.width = innerWidth
 canvas.height = innerHeight
 
-function animate(){
-    requestAnimationFrame(animate)
-    c.clearRect(0,0, canvas.width, canvas.height)
-    player.update(c, canvas.height, keys)
-
-
-}
-
-animate()
-
 const keys = {
     right:{
         pressed: false
@@ -37,6 +27,17 @@ const keys = {
         pressed: false
     }
 }
+
+
+function animate(){
+    requestAnimationFrame(animate)
+    c.clearRect(0,0, canvas.width, canvas.height)
+    player.update(c, canvas.height, keys)
+
+
+}
+
+animate()
 
 addEventListener('keydown',({ keyCode }) => {
     
