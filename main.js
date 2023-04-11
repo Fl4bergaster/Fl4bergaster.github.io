@@ -1,7 +1,3 @@
-window.addEventListener('scroll', function(e) {
-    e.preventDefault();
-  }, { passive: false });
-
 import { Player } from './player.js'
 
 const player = new Player();
@@ -9,6 +5,8 @@ const player = new Player();
 
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+
+console.log(canvas)
 
 canvas.width = innerWidth
 canvas.height = innerHeight
