@@ -8,8 +8,8 @@ const c = canvas.getContext('2d')
 
 console.log(canvas)
 
-canvas.width = innerWidth
-canvas.height = innerHeight
+c.width = innerWidth
+c.height = innerHeight
 
 const keys = {
     right:{
