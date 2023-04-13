@@ -1,12 +1,12 @@
 export class Platform {
-    constructor({ x, y, text}) {
+    constructor() {
         this.position = {
-            x,y
+            x : 100, y : 100
         }
 
         this.width = 200
         this.height = 20
-        this.text = text
+        this.text = 'allo'
 
     }
 

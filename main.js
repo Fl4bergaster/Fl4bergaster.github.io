@@ -3,17 +3,9 @@ import { Platform } from './platforms'
 
 const player = new Player()
 
-const platforms = [
-    new Platform({ 
-        x: 300, 
-        y: 600,
-        text: 'new form'}), 
-        
-        new Platform({ 
-        x: 600, 
-        y: 300,
-        text: 'rien'})
-]
+const platforms = new Platform()
+   
+
 
 
 const canvas = document.querySelector('canvas')
@@ -46,9 +38,7 @@ function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0, canvas.width, canvas.height)
     player.update(c, canvas.height, keys)
-    platforms.forEach(platform => {
-        platform.draw('yellow')
-    })
+    platforms.draw('yellow')
 
 
     // player and platform mouvement
