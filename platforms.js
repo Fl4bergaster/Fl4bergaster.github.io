@@ -3,7 +3,7 @@ export class Platform {
         this.position = {
             x : 100, y : 100
         }
-
+        this.image = image
         this.width = 200
         this.height = 20
         this.text = 'allo'
