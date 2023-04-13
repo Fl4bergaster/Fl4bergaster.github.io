@@ -33,6 +33,47 @@ function animate(){
     player.update(c, canvas.height, keys)
 
 
+    // player and platform mouvement
+    // Va à droite
+    if (keys.right.pressed && player.position.x < 400) {
+        player.velocity.x = 5
+        if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
+            player.velocity.y -= 10;
+            player.isGrounded = false
+            
+        }
+    }
+
+    // Va à gauche
+    else if (keys.left.pressed && player.position.x > 100) {
+        player.velocity.x = -5
+        if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
+            player.velocity.y -= 10;
+            player.isGrounded = false
+           
+        }
+    }
+
+    //saute 
+    else if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
+        player.velocity.y -= 10;
+        player.isGrounded = false
+        
+        
+    }
+    
+    else {
+        player.velocity.x = 0
+        
+        if ((player.position.y + 63.5) == canvas.height){
+            player.isGrounded = true
+        }
+
+        
+        gravity = 0.5;
+    }
+
+
 }
 
 animate()
@@ -42,34 +83,15 @@ addEventListener('keydown',({ keyCode }) => {
     switch (keyCode) {
         case 37:
             keys.left.pressed = true
-            if(player.position.x > 100){
-
-                player.velocity.x = -5
-            }
-            console.log('left')
-            
             break
         case 40:
-            keys.down.pressed = true
-            
+            keys.down.pressed = true   
             break
         case 39:
             keys.right.pressed = true
-            if(player.position.x < 700){
-
-                player.velocity.x = 5
-            }
-            console.log('right')
             break
         case 38:
-            keys.up.pressed = true
-            if (player.velocity.y >= -50) { // && player.isGrounded == true
-                player.velocity.y -= 10;
-                player.isGrounded = false
-                
-                
-            }
-            console.log('up')
+            keys.up.pressed = true  
             break
 
     }
