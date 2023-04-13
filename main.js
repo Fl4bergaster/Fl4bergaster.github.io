@@ -1,5 +1,5 @@
 import { Player } from './player.js'
-import { Platform } from './platforms'
+import { Platform } from './platforms.js'
 
 const player = new Player()
 
