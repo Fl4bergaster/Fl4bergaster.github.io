@@ -11,6 +11,8 @@ console.log(canvas)
 canvas.width = innerWidth
 canvas.height = innerHeight
 
+
+
 const keys = {
     right:{
         pressed: false
@@ -70,7 +72,7 @@ function animate(){
         }
 
         
-        gravity = 0.5;
+        
     }
 
 
