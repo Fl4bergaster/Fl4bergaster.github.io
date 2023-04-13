@@ -42,10 +42,11 @@ addEventListener('keydown',({ keyCode }) => {
     switch (keyCode) {
         case 37:
             keys.left.pressed = true
-            if(player.position.x < 400){
+            if(player.position.x > 100){
 
-                player.velocity.x = 5
+                player.velocity.x = -5
             }
+            console.log('left')
             
             break
         case 40:
@@ -54,19 +55,21 @@ addEventListener('keydown',({ keyCode }) => {
             break
         case 39:
             keys.right.pressed = true
-            if(player.position.x > 100){
+            if(player.position.x < 700){
 
-                player.velocity.x = -5
+                player.velocity.x = 5
             }
+            console.log('right')
             break
         case 38:
             keys.up.pressed = true
-            if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
+            if (player.velocity.y >= -50) { // && player.isGrounded == true
                 player.velocity.y -= 10;
                 player.isGrounded = false
                 
                 
             }
+            console.log('up')
             break
 
     }
