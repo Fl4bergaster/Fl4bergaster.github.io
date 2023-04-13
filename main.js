@@ -38,7 +38,7 @@ function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0, canvas.width, canvas.height)
     player.update(c, canvas.height, keys)
-    platforms.draw('yellow')
+    platforms.draw(c)
 
 
     // player and platform mouvement
