@@ -1,6 +1,19 @@
 import { Player } from './player.js'
+import { Platform } from './platforms'
 
-const player = new Player();
+const player = new Player()
+
+const platforms = [
+    new Platform({ 
+        x: 300, 
+        y: 600,
+        text: 'new form'}), 
+        
+        new Platform({ 
+        x: 600, 
+        y: 300,
+        text: 'rien'})
+]
 
 
 const canvas = document.querySelector('canvas')
@@ -33,11 +46,14 @@ function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0, canvas.width, canvas.height)
     player.update(c, canvas.height, keys)
+    platforms.forEach(platform => {
+        platform.draw('yellow')
+    })
 
 
     // player and platform mouvement
     // Va à droite
-    if (keys.right.pressed && player.position.x < 400) {
+    if (keys.right.pressed && player.position.x < 800) {
         player.velocity.x = 5
         if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
             player.velocity.y -= 10;
