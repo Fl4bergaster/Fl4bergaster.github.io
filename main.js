@@ -42,6 +42,7 @@ addEventListener('keydown',({ keyCode }) => {
     switch (keyCode) {
         case 37:
             keys.left.pressed = true
+            player.velocity.x -= 5
             break
         case 40:
             keys.down.pressed = true
@@ -49,6 +50,7 @@ addEventListener('keydown',({ keyCode }) => {
             break
         case 39:
             keys.right.pressed = true
+            player.velocity.x += 5
             break
         case 38:
             keys.up.pressed = true
@@ -62,12 +64,14 @@ addEventListener('keyup',({ keyCode }) => {
     switch (keyCode) {
         case 37:
             keys.left.pressed = false
+            player.velocity.x = 0
             break
         case 40:
             keys.down.pressed = false
             break
         case 39:
             keys.right.pressed = false
+            player.velocity.x = 0
             break
         case 38:
             keys.up.pressed = false
