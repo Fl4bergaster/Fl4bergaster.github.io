@@ -90,6 +90,18 @@ function animate(){
         if ((player.position.y + 63.5) == canvas.height){
             player.isGrounded = true
         }
+        
+        if (keys.right.pressed) {
+            platforms.forEach(platform => {
+                platform.position.x -= 5
+            })
+        }
+        else if (keys.left.pressed) {
+            platforms.forEach(platform => {
+                platform.position.x += 5
+            })
+        }
+
 
     }
 
