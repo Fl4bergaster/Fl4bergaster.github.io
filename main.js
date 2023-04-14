@@ -45,7 +45,7 @@ function animate(){
     c.clearRect(0,0, canvas.width, canvas.height)
     player.update(c, canvas.height, keys)
     platforms.forEach(platform => {
-        platforms.draw(c)
+        platform.draw(c)
     })
 
 
