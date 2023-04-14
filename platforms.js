@@ -4,8 +4,8 @@ export class Platform {
             x,y
         }
         this.image = image
-        this.width = 100
-        this.height = 20
+        this.width = 217
+        this.height = 17
         
 
     }
