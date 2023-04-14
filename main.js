@@ -13,14 +13,12 @@ const player = new Player()
 
 const platforms = [
     new Platform({ 
-        x: innerHeight - 20, 
-        y: 0,
-        text: 'new form'}), 
+        x: 0, 
+        y: innerHeight - 20}), 
         
         new Platform({ 
-        x: innerHeight - 20, 
-        y: 100,
-        text: 'rien'})
+        x: 100, 
+        y: innerHeight - 20})
 ]
    
 
