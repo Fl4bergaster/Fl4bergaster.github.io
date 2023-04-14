@@ -11,13 +11,19 @@ canvas.height = innerHeight
 
 const player = new Player()
 
+const lenghtplatform = 217
+
 const platforms = [
     new Platform({ 
         x: 0, 
         y: innerHeight - 20}), 
         
         new Platform({ 
-        x: 100, 
+        x: lenghtplatform, 
+        y: innerHeight - 20}), 
+        
+        new Platform({ 
+        x: lenghtplatform * 2, 
         y: innerHeight - 20})
 ]
    
