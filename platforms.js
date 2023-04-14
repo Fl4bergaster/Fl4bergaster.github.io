@@ -1,12 +1,12 @@
 export class Platform {
-    constructor() {
+    constructor({ x, y}) {
         this.position = {
-            x : 100, y : 100
+            x,y
         }
         this.image = image
-        this.width = 200
+        this.width = 100
         this.height = 20
-        this.text = 'allo'
+        
 
     }
 

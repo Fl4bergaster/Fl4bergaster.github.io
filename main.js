@@ -1,13 +1,6 @@
 import { Player } from './player.js'
 import { Platform } from './platforms.js'
 
-const player = new Player()
-
-const platforms = new Platform()
-   
-
-
-
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
@@ -16,7 +9,20 @@ console.log(canvas)
 canvas.width = innerWidth
 canvas.height = innerHeight
 
+const player = new Player()
 
+const platforms = [
+    new Platform({ 
+        x: innerHeight - 20, 
+        y: 0,
+        text: 'new form'}), 
+        
+        new Platform({ 
+        x: innerHeight - 20, 
+        y: 100,
+        text: 'rien'})
+]
+   
 
 const keys = {
     right:{
@@ -38,7 +44,9 @@ function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0, canvas.width, canvas.height)
     player.update(c, canvas.height, keys)
-    platforms.draw(c)
+    platforms.forEach(platform => {
+        platforms.draw(c)
+    })
 
 
     // player and platform mouvement
@@ -77,9 +85,20 @@ function animate(){
             player.isGrounded = true
         }
 
-        
-        
     }
+
+    platforms.forEach(platform => {
+    
+        if (player.position.y + player.height <= platform.position.y && 
+            player.position.y + player.height + player.velocity.y >= platform.position.y &&
+            player.position.x + player.width >= platform.position.x &&
+            player.position.x < platform.position.x + platform.width){
+            player.velocity.y = 0
+            player.isGrounded = true
+            
+        }
+        
+    })
 
 
 }
