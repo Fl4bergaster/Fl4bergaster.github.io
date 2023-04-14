@@ -5,7 +5,7 @@ export class Platform {
         }
         this.image = image
         this.width = 217
-        this.height = 16
+        this.height = 17
         
 
     }
