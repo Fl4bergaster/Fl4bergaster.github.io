@@ -56,10 +56,13 @@ function animate(){
     })
 
     console.log(platformposition)
-    if(platformposition > 10){
+    if(platformposition < -217){
        // platforms[0].x = platformlenght * 3
-        platforms[2].position.x =  platforms[2].position.x + 200
+        platforms[0].position.x =  platforms[2].position.x + 217
 
+    }
+    else{
+        platforms[0].position.x = platforms[1].position.x - 217
     }
 
     // player and platform mouvement
