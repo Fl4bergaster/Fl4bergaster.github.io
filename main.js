@@ -55,8 +55,8 @@ function animate(){
         platform.draw(c)
     })
 
-    console.log(platforms.position.x[0])
-    console.log(platforms.position.y[0])
+    console.log(platformposition)
+    
 
     // player and platform mouvement
     // Va à droite
