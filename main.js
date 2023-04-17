@@ -57,8 +57,8 @@ function animate(){
 
     console.log(platformposition)
     if(platformposition > 10){
-        platformheight[0].x = platformlenght * 3
-        
+       // platforms[0].x = platformlenght * 3
+        console.log(platforms[0].x)
 
     }
 
