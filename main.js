@@ -58,7 +58,7 @@ function animate(){
     console.log(platformposition)
     if(platformposition > 10){
         console.log("OK")
-        c.clearRect(platformposition,0, 217, 17)
+        c.clearRect(platformposition, platformheight, 217, 17)
 
     }
 
