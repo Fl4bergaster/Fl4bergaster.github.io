@@ -15,7 +15,7 @@ const platformlenght = 217
 const platformheight = innerHeight -17
 
 
-const platforms = [
+let platforms = [
     new Platform({ 
         x: 0, 
         y: platformheight}), 
@@ -57,8 +57,8 @@ function animate(){
 
     console.log(platformposition)
     if(platformposition > 10){
-        console.log("OK")
-        c.clearRect(platformposition, platformheight, 217, 17)
+        platformheight[0].x = platformlenght * 3
+        
 
     }
 
