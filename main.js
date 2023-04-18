@@ -41,7 +41,13 @@ let isPlayerMoving = false;
 
 function animate(){
     requestAnimationFrame(animate)
-    
+    console.log(isPlayerMoving)
+
+    if(player.isGrounded == false){
+
+        isPlayerMoving = true
+    }
+
     if (isPlayerMoving) {
         c.clearRect(0,0, canvas.width, canvas.height)
         player.update(c, canvas.height, keys);
