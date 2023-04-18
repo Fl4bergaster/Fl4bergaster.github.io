@@ -63,7 +63,7 @@ function animate(){
             
         }
 
-
+    })
     
 
     if (keys.right.pressed && player.position.x < 800) {
@@ -115,7 +115,7 @@ function animate(){
 
 
     }
- })
+ 
 
 
 }
