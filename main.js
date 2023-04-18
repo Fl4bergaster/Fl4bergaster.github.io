@@ -45,12 +45,11 @@ function animate(){
     player.update(c, canvas.height, keys)
 
      platforms.forEach(platform => {
-         platform.draw(c)
+        platform.draw(c)
 
-         if (platform.x + platformlenght < 0){
-
-            platform.x += platformlenght * 9
-         }
+        if (platform.position.x + platform.width < 0) {
+            platform.position.x += platformlenght * platforms.length
+        }
 
 
      })
