@@ -75,7 +75,7 @@ function animate(){
         
         else {
             player.velocity.x = 0
-            
+            isPlayerMoving = false
             if ((player.position.y + 63.5) == canvas.height){
                 player.isGrounded = true
                 isPlayerMoving = false
@@ -134,16 +134,16 @@ addEventListener('keyup',({ keyCode }) => {
         case 37:
             keys.left.pressed = false
             player.velocity.x = 0
-            isPlayerMoving = false
+            
             break
         case 40:
             keys.down.pressed = false
-            isPlayerMoving = false
+            
             break
         case 39:
             keys.right.pressed = false
             player.velocity.x = 0
-            isPlayerMoving = false
+            
             break
         case 38:
             keys.up.pressed = false
