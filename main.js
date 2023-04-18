@@ -84,7 +84,7 @@ function animate(){
             isPlayerMoving = false
             console.log('player position')
             console.log(player.position.y + 63.5)
-            if ((player.position.y + 63.5) == canvas.height){
+            if ((player.position.y + 53.5) == canvas.height){
                 player.isGrounded = true
                 isPlayerMoving = false
             }
