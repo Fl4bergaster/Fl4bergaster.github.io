@@ -16,9 +16,10 @@ const platformheight = innerHeight -17
 
 
 let platforms = [];
-for (let i = -2; i <= 8; i++) {
-  platforms.push(new Platform({ x: platformlenght * i, y: platformheight }));
-}
+for (let i = -1; i <= 8; i++) {
+    platforms.push(new Platform({ x: platformlenght * i, y: platformheight }));
+    
+  }
 
 
 const keys = {
@@ -29,7 +30,7 @@ const keys = {
         pressed: false
     },
     down:{
-        pressed: true
+        pressed: false
     },
     up:{
         pressed: false
@@ -42,9 +43,19 @@ function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0, canvas.width, canvas.height)
     player.update(c, canvas.height, keys)
-    platforms.forEach(platform => {
-        platform.draw(c)
-    })
+
+     platforms.forEach(platform => {
+         platform.draw(c)
+
+         if (platform.x + platformlenght < 0){
+
+            platform.x += platformlenght * 9
+         }
+
+
+     })
+
+     //chatgpt
 
     // console.log(platformposition)
     // if(platformposition < -217){
