@@ -15,40 +15,11 @@ const platformlenght = 217
 const platformheight = innerHeight -17
 
 
-let platforms = [
-    new Platform({ 
-        x: platformlenght * -1, 
-        y: platformheight}),
-        
-        new Platform({ 
-        x: 0, 
-        y: platformheight}), 
-        
-        new Platform({ 
-        x: platformlenght, 
-        y: platformheight}), 
-        
-        new Platform({ 
-        x: platformlenght * 2, 
-        y: platformheight}), 
-        
-        new Platform({ 
-        x: platformlenght * 3, 
-        y: platformheight}), 
-        
-        new Platform({ 
-        x: platformlenght * 4, 
-        y: platformheight}), 
-        
-        new Platform({ 
-        x: platformlenght * 5, 
-        y: platformheight}), 
-        
-        new Platform({ 
-        x: platformlenght * 6, 
-        y: platformheight})
-]
-   
+let platforms = [];
+for (let i = -2; i <= 8; i++) {
+  platforms.push(new Platform({ x: platformlenght * i, y: platformheight }));
+}
+
 
 const keys = {
     right:{
