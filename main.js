@@ -44,7 +44,7 @@ function animate(){
     c.clearRect(0,0, canvas.width, canvas.height)
     player.update(c, canvas.height, keys)
 
-     platforms.forEach(platform => {
+    platforms.forEach(platform => {
         platform.draw(c)
 
         if (platform.position.x + platform.width < 0) {
@@ -54,23 +54,18 @@ function animate(){
             platform.position.x -= platformlenght * platforms.length
         }
 
+        if (player.position.y + player.height <= platform.position.y && 
+            player.position.y + player.height + player.velocity.y >= platform.position.y &&
+            player.position.x + player.width >= platform.position.x &&
+            player.position.x < platform.position.x + platform.width){
+            player.velocity.y = 0
+            player.isGrounded = true
+            
+        }
 
-     })
 
-     //chatgpt
+    
 
-    // console.log(platformposition)
-    // if(platformposition < -217){
-    //    // platforms[0].x = platformlenght * 3
-    //     platforms[0].position.x =  platforms[2].position.x + 217
-
-    // }
-    // else{
-    //     platforms[0].position.x = platforms[1].position.x - 217
-    // }
-
-    // player and platform mouvement
-    // Va à droite
     if (keys.right.pressed && player.position.x < 800) {
         player.velocity.x = 5
         if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
@@ -120,19 +115,7 @@ function animate(){
 
 
     }
-
-    platforms.forEach(platform => {
-    
-        if (player.position.y + player.height <= platform.position.y && 
-            player.position.y + player.height + player.velocity.y >= platform.position.y &&
-            player.position.x + player.width >= platform.position.x &&
-            player.position.x < platform.position.x + platform.width){
-            player.velocity.y = 0
-            player.isGrounded = true
-            
-        }
-        
-    })
+ })
 
 
 }
