@@ -37,86 +37,15 @@ const keys = {
     }
 }
 
-let platformposition = 0
+let isPlayerMoving = false;
 
 function animate(){
     requestAnimationFrame(animate)
-    c.clearRect(0,0, canvas.width, canvas.height)
     
-
-    platforms.forEach(platform => {
-        platform.draw(c)
-
-        if (platform.position.x + platform.width < 0) {
-            platform.position.x += platformlenght * platforms.length
-        }
-        if (platform.position.x > canvas.width) {
-            platform.position.x -= platformlenght * platforms.length
-        }
-
-        if (player.position.y + player.height <= platform.position.y && 
-            player.position.y + player.height + player.velocity.y >= platform.position.y &&
-            player.position.x + player.width >= platform.position.x &&
-            player.position.x < platform.position.x + platform.width){
-            player.velocity.y = 0
-            player.isGrounded = true
-            
-        }
-
-    })
-    
-
-    if (keys.right.pressed && player.position.x < 800) {
-        player.velocity.x = 5
-        if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
-            player.velocity.y -= 10;
-            player.isGrounded = false
-            
-        }
+    if (isPlayerMoving) {
+        c.clearRect(0,0, canvas.width, canvas.height)
+        player.update(c, canvas.height, keys);
     }
-
-    // Va à gauche
-    else if (keys.left.pressed && player.position.x > 100) {
-        player.velocity.x = -5
-        if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
-            player.velocity.y -= 10;
-            player.isGrounded = false
-           
-        }
-    }
-
-    //saute 
-    else if (keys.up.pressed && player.velocity.y >= -50 && player.isGrounded == true) {
-        player.velocity.y -= 10;
-        player.isGrounded = false
-        
-        
-    }
-    
-    else {
-        player.velocity.x = 0
-        
-        if ((player.position.y + 63.5) == canvas.height){
-            player.isGrounded = true
-        }
-
-        if (keys.right.pressed) {
-            platforms.forEach(platform => {
-                platform.position.x -= 5
-                platformposition -= 5 
-            })
-        }
-        else if (keys.left.pressed) {
-            platforms.forEach(platform => {
-                platform.position.x += 5
-                platformposition += 5
-            })
-        }
-
-
-    }
- 
-
 
 }
 
@@ -127,18 +56,20 @@ addEventListener('keydown',({ keyCode }) => {
     switch (keyCode) {
         case 37:
             keys.left.pressed = true
-            player.update(c, canvas.height, keys)
+            isPlayerMoving = true
             break
         case 40:
-            keys.down.pressed = true   
+            keys.down.pressed = true  
+            isPlayerMoving = true 
             break
         case 39:
             keys.right.pressed = true
-            player.update(c, canvas.height, keys)
+            isPlayerMoving = true
             break
         case 38:
             keys.up.pressed = true
-            player.update(c, canvas.height, keys)  
+            isPlayerMoving = true
+              
             break
 
     }
@@ -150,16 +81,20 @@ addEventListener('keyup',({ keyCode }) => {
         case 37:
             keys.left.pressed = false
             player.velocity.x = 0
+            isPlayerMoving = false
             break
         case 40:
             keys.down.pressed = false
+            isPlayerMoving = false
             break
         case 39:
             keys.right.pressed = false
             player.velocity.x = 0
+            isPlayerMoving = false
             break
         case 38:
             keys.up.pressed = false
+            isPlayerMoving = false
             break
 
     }
