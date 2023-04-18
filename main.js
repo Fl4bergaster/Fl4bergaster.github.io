@@ -46,6 +46,7 @@ function animate(){
 
     if(isPlatformMoving){
         platforms.forEach(platform => {
+            c.clearRect(platform.position.x, platform.position.y , 217, 17)
             platform.draw(c)
     
             if (platform.position.x + platform.width < 0) {
@@ -76,7 +77,7 @@ function animate(){
     }
 
     if (isPlayerMoving) {
-        c.clearRect(player.position.x +20, player.position.y+20 , 40, 40)
+        c.clearRect(player.position.x +15, player.position.y+15 , 45, 45)
         player.update(c, canvas.height, keys);
 
         if (keys.right.pressed && player.position.x < 800) {
