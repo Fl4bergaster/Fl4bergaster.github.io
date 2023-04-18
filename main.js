@@ -76,7 +76,7 @@ function animate(){
     }
 
     if (isPlayerMoving) {
-        c.clearRect(player.position.x, player.position.y , 64, 64)
+        c.clearRect(player.position.x, player.position.y , 40, 40)
         player.update(c, canvas.height, keys);
 
         if (keys.right.pressed && player.position.x < 800) {
@@ -119,14 +119,12 @@ function animate(){
             if (keys.right.pressed) {
                 platforms.forEach(platform => {
                     platform.position.x -= 5
-                    platformposition -= 5 
                     isPlatformMoving = true
                 })
             }
             else if (keys.left.pressed) {
                 platforms.forEach(platform => {
                     platform.position.x += 5
-                    platformposition += 5
                     isPlatformMoving = true
                 })
             }
