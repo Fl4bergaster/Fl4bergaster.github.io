@@ -17,6 +17,10 @@ const platformheight = innerHeight -17
 
 let platforms = [
     new Platform({ 
+        x: platformlenght * -1, 
+        y: platformheight}),
+        
+        new Platform({ 
         x: 0, 
         y: platformheight}), 
         
@@ -26,6 +30,22 @@ let platforms = [
         
         new Platform({ 
         x: platformlenght * 2, 
+        y: platformheight}), 
+        
+        new Platform({ 
+        x: platformlenght * 3, 
+        y: platformheight}), 
+        
+        new Platform({ 
+        x: platformlenght * 4, 
+        y: platformheight}), 
+        
+        new Platform({ 
+        x: platformlenght * 5, 
+        y: platformheight}), 
+        
+        new Platform({ 
+        x: platformlenght * 6, 
         y: platformheight})
 ]
    
@@ -55,15 +75,15 @@ function animate(){
         platform.draw(c)
     })
 
-    console.log(platformposition)
-    if(platformposition < -217){
-       // platforms[0].x = platformlenght * 3
-        platforms[0].position.x =  platforms[2].position.x + 217
+    // console.log(platformposition)
+    // if(platformposition < -217){
+    //    // platforms[0].x = platformlenght * 3
+    //     platforms[0].position.x =  platforms[2].position.x + 217
 
-    }
-    else{
-        platforms[0].position.x = platforms[1].position.x - 217
-    }
+    // }
+    // else{
+    //     platforms[0].position.x = platforms[1].position.x - 217
+    // }
 
     // player and platform mouvement
     // Va à droite
