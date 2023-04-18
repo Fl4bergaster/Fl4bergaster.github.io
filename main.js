@@ -38,10 +38,37 @@ const keys = {
 }
 
 let isPlayerMoving = false;
+let isPlatformMoving = false;
 
 function animate(){
     requestAnimationFrame(animate)
     
+
+    if(isPlatformMoving){
+        platforms.forEach(platform => {
+            platform.draw(c)
+    
+            if (platform.position.x + platform.width < 0) {
+                platform.position.x += platformlenght * platforms.length
+            }
+            if (platform.position.x > canvas.width) {
+                platform.position.x -= platformlenght * platforms.length
+            }
+    
+            if (player.position.y + player.height <= platform.position.y && 
+                player.position.y + player.height + player.velocity.y >= platform.position.y &&
+                player.position.x + player.width >= platform.position.x &&
+                player.position.x < platform.position.x + platform.width){
+                player.velocity.y = 0
+                player.isGrounded = true
+                
+            }
+    
+        })
+
+    }
+    
+
 
     if(player.isGrounded == false){
 
@@ -84,7 +111,7 @@ function animate(){
             isPlayerMoving = false
             console.log('player position')
             console.log(player.position.y + 63.5)
-            if ((player.position.y + 53.5) == canvas.height){
+            if ((player.position.y + 63.5) == canvas.height){
                 player.isGrounded = true
                 isPlayerMoving = false
             }
@@ -93,12 +120,14 @@ function animate(){
                 platforms.forEach(platform => {
                     platform.position.x -= 5
                     platformposition -= 5 
+                    isPlatformMoving = true
                 })
             }
             else if (keys.left.pressed) {
                 platforms.forEach(platform => {
                     platform.position.x += 5
                     platformposition += 5
+                    isPlatformMoving = true
                 })
             }
     
