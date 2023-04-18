@@ -77,7 +77,7 @@ function animate(){
     }
 
     if (isPlayerMoving) {
-        c.clearRect(player.position.x +10, player.position.y+15 , 40, 50)
+        c.clearRect(player.position.x , player.position.y, 64, 64)
         player.update(c, canvas.height, keys);
 
         if (keys.right.pressed && player.position.x < 800) {
