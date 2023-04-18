@@ -50,6 +50,9 @@ function animate(){
         if (platform.position.x + platform.width < 0) {
             platform.position.x += platformlenght * platforms.length
         }
+        if (platform.position.x > canvas.width) {
+            platform.position.x -= platformlenght * platforms.length
+        }
 
 
      })
